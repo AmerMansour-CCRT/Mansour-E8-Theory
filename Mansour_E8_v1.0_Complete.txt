@@ -1,0 +1,17 @@
+import qrcode
+
+# غير هاد الرقم بس يصير معك DOI حقيقي من Zenodo
+doi = "10.5281/zenodo.8912345"  
+
+data = f"""Mansour E8 Theory v1.0
+Author: Amer Mohamed Ahmad Mansour
+Country: Jordan
+DOI: https://doi.org/{doi}
+SHA-256: 3b98545c7db5b6f925df1e028cad9d0a6e747ddc5"""
+
+qr = qrcode.QRCode(version=1, box_size=10, border=4)
+qr.add_data(data)
+qr.make(fit=True)
+img = qr.make_image(fill_color="black", back_color="white")
+img.save("Mansour_E8_QR_Public_Final.png")
+print("✅ تم صنع QR: Mansour_E8_QR_Public_Final.png")
